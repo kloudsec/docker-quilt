@@ -48,6 +48,10 @@ def index():
 
 @_requires_auth
 def manage():
+    admin_username = kv.get(kv.Keys.ADMIN_USERNAME, None)
+    if admin_username is None:
+        redirect("/")
+
     build_flow_lis = builds.all()
     return render_template("manage.html", **{
         'build_flows': build_flow_lis,
