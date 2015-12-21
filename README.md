@@ -14,8 +14,15 @@ To install
 
 Run the docker instance in your server
 
-    $ sudo docker run -p 80:80 -it nubelacorp/docker-quilt
+    $ sudo docker run -privileged -p 80:80 -it nubelacorp/docker-quilt
     
 Configure it for the first time by visiting
 
      http://<host>/
+     
+FAQ
+---
+
+* Why use privileged mode?
+
+Because we have to run *docker in docker*.
