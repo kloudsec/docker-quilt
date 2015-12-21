@@ -1,0 +1,7 @@
+.idea*
+*.DS_Store
+.sass-cache*
+WATCHER.sh
+*.pyc
+state.db
+v_env/*

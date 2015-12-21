@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block body %}
+.modal.fade#bitbucket-modal role="dialog"
+    .modal-dialog.modal-lg
+        .modal-content
+            form action='/ssh_key' method='post'
+                .form-group
+                    label
+                        GIT SSH KEY
+                    p
+                        small
+                            Optional; To clone and pull from private git repos.
+                    <textarea class="form-control" name='ssh_key'></textarea>
+                .form-group
+                    button.btn.btn-info.btn-block
+                        UPDATE
+
+.jumbotron
+    .container.text-center
+        h4
+            Build Flows
+        p
+            small
+                <a class="pointer" data-toggle="modal" data-target="#bitbucket-modal">Update settings</a>
+.container
+    .col-sm-12.text-center
+        {% for build_flow in build_flows %}
+        .card
+            .card-title
+                div.lead
+                    {{build_flow.project_name}}
+                    .dropdown
+                        <span class="glyphicon glyphicon-cog dropdown-toggle" aria-hidden="true" data-toggle="dropdown"></span>
+                        ul.dropdown-menu
+                            li
+                                a href="/build/del/{{build_flow.id}}" | Delete this build
+            .card-contents
+                .block
+                    label
+                        Git Repository URI
+                    div
+                        code
+                            {{build_flow.uri}}
+
+                .block
+                    label
+                        Webhook URI
+                    div
+                        code
+                            {{base_url}}hook/{{build_flow.id}}
+
+                .block
+                    label
+                        Pushes to this repository on Docker Hub
+                    div
+                        code
+                            {{build_flow.docker_repo_image}}
+        {% endfor %}
+
+        .card.white
+            .card-title
+                div.lead
+                    New build
+            .card-contents
+                form action='/build' method='post' data-parsley-validate
+                    .form-group
+                        label
+                            GIT repository URI *
+                        > input.form-control type="text" placeholder="git@bitbucket.org:gom-vpn/project-n-proxy-nginx.git" name='repository_uri' data-parsley-required
+
+                    .form-group
+                        label
+                            Dockerhub Registry / Image name
+                        > input.form-control type="text" placeholder="nubelacorp/gom-provider" name='repo_image' data-parsley-required
+
+                    button.btn.btn-primary.btn-block
+                        CREATE BUILD
+
+
+
+{% endblock %}

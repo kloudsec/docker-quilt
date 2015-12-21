@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block body %}
+.jumbotron
+    .container.text-center
+        h1 | Quilt
+        p.lead
+            A fast autobuild service for <code>Dockerfile</code> projects that uses image layer caching
+
+.container
+    .col-sm-6.col-sm-offset-3.text-center
+        .card
+            .card-title
+                h4
+                    Make this Quilt your own
+            .card-contents
+                form action="/setup" method="post" data-parsley-validate
+                    .form-group
+                        label
+                            ADMIN USERNAME *
+                        > input.form-control type="text" name="username" data-parsley-required
+
+                    .form-group
+                        label
+                            ADMIN PASSWORD *
+                        > input.form-control type="password" name="passwd" data-parsley-required
+
+                    .form-group
+                        label
+                            GIT SSH KEY
+                        p
+                            small
+                                Optional; To clone and pull from private git repos such as Bitbucket repos
+                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
+
+                    .form-group
+                        label
+                            DOCKER HUB EMAIL *
+                        p
+                            small
+                                To push to Docker hub registry
+                        > input.form-control type="email" name="docker_hub_email" data-parsley-required
+
+                    .form-group
+                        label
+                            DOCKER HUB USERNAME *
+                        > input.form-control type="text" name="docker_hub_username" data-parsley-required
+
+                    .form-group
+                        label
+                            DOCKER HUB PASSWORD *
+                        > input.form-control type="password" name="docker_hub_passwd" data-parsley-required
+
+                    button.btn.btn-primary.btn-block
+                        NEXT
+
+
+{% endblock %}

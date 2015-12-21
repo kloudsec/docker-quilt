@@ -1,0 +1,9 @@
+CherryPy==4.0.0
+Flask==0.10.1
+Jinja2==2.8
+MarkupSafe==0.23
+SQLAlchemy==1.0.10
+Werkzeug==0.11.2
+itsdangerous==0.24
+manage.py==0.2.10
+wsgiref==0.1.2

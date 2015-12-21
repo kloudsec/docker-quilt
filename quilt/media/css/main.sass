@@ -1,0 +1,1497 @@
+a, a:link, a:active, a:visited, a:hover
+    color: inherit
+    text-decoration: none
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+    font-family: 'Lato', sans-serif
+    font-weight: 400
+    -webkit-font-smoothing: antialiased
+
+$bg-gray: #e4e4e4
+$wet-asphalt: #34495e
+$midnight-blue: #2c3e50
+$peter-river: #3498db
+$belize-hole: #2980b9
+$sunflower: #f1c40f
+$orange: #f39c12
+$carrot: #e67e22
+$turquoise: #1abc9c
+$green-sea: #16a085
+$alizarin: #e74c3c
+$pomegranate: #c0392b
+$nice-black: #111111
+$text-darkblue: #394d60
+$greenish-gray: #f9f9f9
+
+$header-ht: 122px
+$indicator-ht: 50px
+
+=open-sans
+    font-family: 'Open Sans', sans-serif
+    font-weight: 400
+
+=lato
+    font-family: 'Lato', sans-serif
+    font-weight: 400
+
+=transition
+    -webkit-transition: 0.25s
+    -moz-transition: 0.25s
+    -o-transition: 0.25s
+    transition: 0.25s
+
+=underline
+    border-bottom: 1px dotted $green-sea
+
+=highlight-yellow
+    background-color: #fff6d2
+
+=rounded
+    border: 1px solid #d5d5d5
+    border-radius: 8px
+    padding: 10px
+
+//overwrites
+
+body
+    background-color: white
+    padding-bottom: 50px
+
+.rounded-box
+    border: 1px solid #35495d // stroke
+    border-radius: 8px
+    background-clip: padding-box
+    background-color: #fff // layer fill content
+    padding: 10px 20px
+
+.navbar
+    position: relative
+    z-index: 99
+    background-color: #ffffff
+
+    .invis-rounded, .rounded
+        font-weight: 400
+        letter-spacing: 1px
+        color: $text-darkblue
+
+    .invis-rounded
+        border-radius: 8px
+        background-clip: padding-box
+        background-color: #fff // layer fill content
+        padding: 10px 20px
+
+    .rounded
+        border: 1px solid #35495d // stroke
+        border-radius: 8px
+        background-clip: padding-box
+        background-color: #fff // layer fill content
+        padding: 10px 20px
+
+    .non-rounded
+        border: 0
+        background-clip: padding-box
+        background-color: #fff // layer fill content
+        padding: 10px 20px
+
+#logo
+    +lato
+    font-size: 18px
+    color: $text-darkblue
+    font-weight: bold
+    letter-spacing: 2px
+    span
+        font-weight: 300
+    img
+        margin-top: -3px
+
+//#logo-anchor
+//    padding: 26px 0
+
+.uppercase
+    text-transform: uppercase
+
+.text-center
+    text-align: center
+
+.text-left
+    text-align: left
+
+.text-right
+    text-align: right
+
+.downward-box-shadow
+    box-shadow: 0px 5px 25px -9px rgba(0, 0, 0, 0.3)
+
+    @media(max-width:767px)
+        box-shadow: none
+
+.index-jumbotron
+    box-shadow: none !important
+    #gom-button-container, #gom-button-arrow-container, #gom-button-desc
+        text-align: center
+
+    #gom-button-desc
+        padding-top: 10px
+        h2
+            color: $text-darkblue
+            font-size: 24px
+            font-weight: 400
+            line-height: 36px
+            margin-bottom: 0
+
+        p.lead
+            color: $text-darkblue
+            font-size: 18px
+            font-weight: 400
+            line-height: 36px
+            margin-top: 0
+
+.btn-faux-raised
+    background-color: $orange !important
+    +open-sans
+    text-transform: uppercase
+    font-weight: bold
+    color: white
+    border-radius: 8px !important
+    padding: 0 0 1px 0
+    font-size: 26px
+    @media(max-width:767px)
+        font-size: 18px
+
+    .inner-btn
+        border-radius: 8px !important
+        background-color: $sunflower !important
+        margin-bottom: 10px
+        padding: 20px 30px
+
+        @media(max-width:767px)
+            padding: 10px 15px
+
+.btn-primary.btn
+    .inner-btn, .inner-btn:hover
+        color: white
+
+.btn-green.btn
+    background-color: $green-sea !important
+    .inner-btn
+        color: white
+        background-color: $turquoise !important
+
+.btn-gray.btn
+    background-color: #b0bcbc !important
+    .inner-btn
+        background-color: #efefef !important
+        color: #7f8c8d
+
+.text-right
+    text-align: right
+
+.btn-small
+    .inner-btn
+        padding: 10px 20px !important
+        font-size: 18px
+
+#gom-button-cta
+    padding: 15px 0 15px
+
+.also-available
+    color: $text-darkblue
+
+#gom-button-container
+    padding-top: 50px
+
+.index-guide-container
+    padding-top: 30px
+    h4
+        padding-bottom: 10px
+        text-transform: uppercase
+        +open-sans
+        font-size: 18px
+        font-weight: bold
+        color: $text-darkblue
+        @media(max-width:767px)
+            border-bottom: 1px solid #d5d5d5
+    h4.underline
+        border-bottom: 1px solid #d5d5d5
+    p.lead
+        margin-bottom: 0
+        font-size: 14px
+        font-weight: 400
+
+.guide-list-container
+    padding: 30px 0 50px
+
+    .badge
+        text-transform: uppercase
+        margin-left: 10px
+        font-size: 10px
+        position: relative
+        top: -3px
+        +lato
+
+.guide-row:hover
+    background-color: #f9f9f8
+    border-radius: 8px
+
+.guide-row
+    padding: 15px 0
+
+    .popularity-box
+        background-color: #efefef
+        border-radius: 8px
+        color: #999999
+        +open-sans
+        font-size: 14px
+        text-align: center
+        line-height: 50px
+
+    .guide-title
+        margin-top: 3px
+        +lato
+        font-size: 16px
+        color: $text-darkblue
+        margin-bottom: 0
+        font-weight: bold
+
+    .guide-desc
+        +lato
+        font-weight: 400
+        color: $text-darkblue
+        font-size: 13px
+
+    .guide-profile-pic
+        max-width: 40px
+        border-radius: 100%
+
+    .guide-profile-container
+        text-align: center
+        line-height: 50px
+
+    .guide-comment-count-container
+        margin: 0 auto
+        line-height: 50px
+        span
+            +open-sans
+            font-size: 18px
+            color: #a5a5a5
+            padding: 0 6px
+
+        img
+            margin-top: -8px
+
+.btm-navi
+    margin-top: 10px
+    a.btn
+        margin-right: 20px
+
+footer
+    color: $nice-black
+
+    .footer-col
+        padding: 50px 0 50px
+        text-align: center
+
+        h4
+            +lato
+            font-size: 14px
+            font-weight: 400
+
+    a, a:hover
+        color: $nice-black
+        font-size: 12px
+        font-weight: 300
+
+.guide-container
+    padding: 30px 0 50px
+    .guide-selector-box
+        width: 100%
+        @media(max-width:767px)
+            margin-top: 20px
+
+        .guide-icon-container
+            text-align: center
+            line-height: 140px
+        .guide-icon
+            width: 80px
+
+        .guide-desc
+            padding-top: 18px
+            text-align: left
+            text-transform: none !important
+            white-space: normal
+
+            h3
+                color: $text-darkblue
+                font-size: 20px
+                font-weight: 300
+            p.lead
+                color: $text-darkblue
+                font-size: 14px
+                font-weight: 400
+
+    .guide-selector-box.btn
+        margin: 0
+        padding: 0
+
+    .guide-selector-box-selected
+        background-color: $greenish-gray
+
+.hidden
+    display: none
+
+.page-desc
+    margin-top: 70px
+    margin-bottom: 60px
+
+    h2
+        font-size: 24px
+        color: $text-darkblue
+        +open-sans
+
+    p.lead
+        font-size: 12px
+        +open-sans
+
+.parsley-errors-list
+    display: none
+    list-style: none
+    margin: 0
+    padding: 0
+    li
+        font-size: 13px
+        font-weight: bold
+        color: $carrot
+        margin: 5px 0
+
+.parsley-errors-list.filled
+    display: block
+
+.search-box
+    margin-top: 60px
+    padding: 25px 20px
+    +lato
+    color: #7c7c7c
+    background-color: $greenish-gray
+    border-radius: 8px
+    text-align: center
+    font-size: 32px
+    input
+        color: $text-darkblue
+        width: 250px
+        margin: 0 5px
+        text-align: center
+        border: 1px solid #d5d5d5
+        border-radius: 8px
+    span
+        line-height: 80px
+
+    #go
+        margin-left: 30px
+
+    #search-site
+        width: 180px
+
+    .parsley-errors-list
+        display: none
+        list-style: none
+        margin: 0
+        padding: 0
+        height: 0
+        li
+            font-size: 13px
+            font-weight: bold
+            color: $carrot
+            margin: 5px 0
+
+    .parsley-errors-list.filled
+        display: block
+
+.well
+    background-color: #ecf0f1 !important
+
+.after-search-box
+    margin-top: 60px
+
+.page-header-desc
+    +lato
+    font-size: 30px
+    font-weight: 300
+    color: $text-darkblue
+    text-align: center
+    margin: 50px 0 50px
+
+.price-container
+    text-align: center
+    +lato
+    color: $text-darkblue
+    box-shadow: 0 0 49px rgba(0,0,0,.25)
+
+.price-container.small
+    padding: 35px 0 0
+    height: 170px
+    margin-bottom: 10px
+
+    h4
+        color: #6e94b9
+        font-size: 30px
+        font-weight: bold
+        small
+            font-size: 16px
+
+.price-container.big
+    margin-bottom: 10px
+    height: 530px
+    padding-top: 130px
+
+    h4
+        font-size: 60px
+        font-weight: bold
+
+        small
+            font-size: 20px
+            font-weight: 300 !important
+
+    p
+        font-size: 18px
+
+.all-prices-container, .all-installs-container
+    margin-bottom: 70px
+
+.platform-container
+    margin-bottom: 20px
+    padding: 20px 0
+    text-align: center
+    +lato
+    color: $text-darkblue
+    box-shadow: 0 0 49px rgba(0,0,0,.25)
+
+    h4
+        font-size: 20px
+        font-weight: 400
+        margin: 0 0 30px
+
+    .logo
+        img
+            height: 100px
+
+    .cta
+        padding: 20px 0 0
+
+.btn-success
+    background-color: $green-sea !important
+
+.btn-info
+    background-color: $turquoise !important
+
+.notifier
+    background-color: $greenish-gray
+    border-radius: 8px
+    font-size: 16px
+    +lato
+    color: $text-darkblue
+    text-align: center
+    padding: 10px 0
+
+.creation
+    padding: 40px 0 100px
+    input.full-input
+        height: 60px
+        width: 100%
+        color: $text-darkblue
+        text-align: left
+        border: 1px solid #d5d5d5
+        border-radius: 8px
+        +open-sans
+        font-weight: 300
+        padding: 0 15px
+
+    textarea.full-textarea
+        padding: 5px 15px
+        text-align: left !important
+        width: 100%
+        color: $text-darkblue
+        text-align: center
+        border: 1px solid #d5d5d5
+        border-radius: 8px
+        +open-sans
+        font-weight: 400
+        font-size: 14px
+        min-height: 60px
+
+    input#title
+        font-size: 30px
+        padding: 15px 15px
+
+    .entry
+        margin: 24px 0 24px
+
+    small
+        +lato
+
+.platform-selector
+    padding-top: 5px
+
+    .platform
+        color: $text-darkblue
+        border: 1px solid #d5d5d5
+        border-radius: 8px
+        text-align: center
+        padding: 15px 5px 10px
+
+        small
+            font-weight: 400
+
+        p
+            margin-bottom: 0
+            margin-top: 5px
+
+        img
+            max-height: 50px
+            max-width: 100%
+
+    .platform.selected
+        background-color: $orange
+        color: white
+        border: 1px solid $orange
+
+.step
+    color: $text-darkblue
+    border: 1px solid #d5d5d5
+    border-radius: 8px
+    padding: 20px 20px
+    text-align: center
+
+    .step-title
+        font-size: 30px
+        padding: 15px 0
+        width: 100%
+        color: $text-darkblue
+        text-align: center
+        border: 0
+        +open-sans
+        font-weight: 300
+        margin-bottom: 10px
+
+    .step-screenshot
+        display: inline
+
+    .step-content
+        font-size: 20px
+        padding: 15px 0
+        width: 100%
+        color: $text-darkblue
+        text-align: center
+        +open-sans
+        font-weight: 400
+        border: 0
+
+    .screenshot
+        border: 1px solid #d5d5d5
+        border-radius: 8px
+        padding: 10px
+        display: inline-block
+
+.breadcrumb-row
+    margin-bottom: 48px
+
+.breadcrump-desc
+    +lato
+    font-weight: 300
+    font-size: 12px
+    color: $nice-black
+    span
+        +rounded
+
+.breadcrumb-search
+    +rounded
+    #search
+        border: 0
+
+.rounded
+    +rounded
+
+.article
+    padding-bottom: 100px
+
+    h1
+        font-weight: 300
+        color: $text-darkblue
+        +open-sans
+
+    h2
+        font-weight: bold
+        color: $nice-black
+        font-size: 18px
+        +open-sans
+
+    p
+        +open-sans
+        font-size: 14px
+        line-height: 22px
+
+    .screenie
+        margin: 20px 0
+        img
+            max-width: 100%
+
+    .article-step
+        margin-bottom: 50px
+
+    .find-it-useful, .read-comments
+        width: 270px
+        text-transform: uppercase
+        +rounded
+        font-weight: 300
+        display: inline-block
+        margin-right: 10px
+        text-align: center
+        line-height: 50px
+
+        img
+            margin-right: 10px
+            width: 30px
+
+    .find-it-useful.selected
+        background-color: $orange
+        color: white
+        font-weight: bold
+        img
+            display: none
+
+.platform-selector-guide
+    margin: 60px 0 40px
+    border-bottom: 1px solid #bbbbbb
+
+    div
+        font-weight: bold
+        color: #9d9d9d
+        text-transform: uppercase
+        border-bottom: none
+        border-left: 1px solid #bbbbbb
+        border-top: 1px solid #bbbbbb
+        border-right: 1px solid #bbbbbb
+        display: inline-block
+        background-color: white
+        position: relative
+        bottom: -1px
+        padding: 5px 10px
+        font-size: 11px
+
+.article-right
+    text-align: center
+    font-size: 11px
+    +lato
+    margin-bottom: 50px
+    p
+        margin: 0
+
+.profile-pic
+    margin-top: 20px
+    img
+        max-width: 80px
+        border-radius: 100%
+        margin-bottom: 10px
+
+.total-comments
+    height: 80px
+
+.comment-ui-container
+    height: 80px
+    img
+        max-height: 100%
+        max-width: 100px
+
+.comment-ui-container-letters
+    height: 80px
+    line-height: 80px
+    font-weight: bold
+    font-size: 20px
+    background-color: transparent
+    position: relative
+    top: -85px
+
+.total-usefulness
+    p
+        margin-top: -75px
+    .comment-ui-container-letters
+        top: -80px
+
+.margin-center
+    margin: 0 auto
+
+.addon-avail
+    margin: 70px 0 80px
+    text-align: center
+    .well
+        background-color: #ecf0f1
+    h3
+        font-weight: bold
+        font-size: 28px
+
+.scrim
+    opacity: .28
+    background-color: black
+    position: fixed
+    z-index: 2
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+
+.comment-box
+    overflow: auto
+    z-index: 3
+    background-color: white
+    opacity: 1
+    box-shadow: 0 0 155px rgba(0,0,0,.45)
+    height: 100%
+    min-width: 480px
+    width: 50%
+    right: 0
+    top: 0
+    bottom: 0
+    position: fixed
+
+    .notifier
+        padding-right: 10px
+
+    #cross
+        float: right
+
+    h2
+        font-size: 24px
+        line-height: 30px
+
+.comment-head
+    padding: 20px
+    box-shadow: 0px 5px 25px -9px rgba(0, 0, 0, 0.3)
+    padding-bottom: 15px
+
+    .profile-pic
+        border-radius: 100%
+        width: 40px
+        margin-right: 10px
+    p
+        font-size: 11px
+
+.new-comment-container
+    +rounded
+    overflow: hidden
+    width: 100%
+    position: relative
+
+    .textarea
+        padding-bottom: 10px
+        width: 100%
+        padding-right: 75px
+        textarea
+            width: 100%
+            height: 100%
+            border: 0
+            +open-sans
+            color: $text-darkblue
+
+    #post-comment-btn
+        width: 65px
+        margin: 0
+        position: absolute
+        right: 10px
+        top: 10px
+        .inner-btn
+            padding: 0
+            img
+                max-width: 100%
+
+.comment-body
+    padding: 30px 20px 30px
+
+.comment-entry
+    margin: 40px 0
+    .profile
+        +lato
+        .upvote
+            cursor: pointer
+            padding: 7px !important
+            text-align: center
+            margin-right: 10px
+            +rounded
+            background-color: #efefef
+            display: inline-block
+            border: 0
+            font-weight: bold
+            color: #a5a5a5
+            font-size: 11px
+            img
+                margin-bottom: 5px
+                width: 20px
+                display: block
+                margin: 0 auto
+        .upvote:hover,.upvote.selected
+            background-color: $sunflower
+        span
+            font-style: italic
+            line-height: 20px
+            position: relative
+            top: -10px
+            font-size: 11px
+            color: #95a5a6
+    p
+        margin-top: -8px
+        +open-sans
+        font-size: 14px
+        color: $nice-black
+
+.comment-col
+    padding-left: 30px
+    border-left: 1px solid #efefef
+
+.comment-col:first-of-type
+    padding-left: 0
+    border-left: 0
+
+.addon-popup-container
+    z-index: 3
+    opacity: 1
+    background-color: transparent
+    height: 100%
+    width: 100%
+    right: 0
+    top: 0
+    bottom: 0
+    left: 0
+    position: fixed
+    padding: 100px 0
+    overflow: auto
+
+.add-popup
+    background-color: white
+    box-shadow: 0 0 49px rgba(0,0,0,.25)
+
+    .comment-head
+        padding: 30px
+        padding-bottom: 0
+
+    .addon-body
+        padding: 30px
+
+        h4
+            font-size: 16px
+            span
+                text-decoration: underline
+                color: $green-sea
+
+        p
+            font-size: 13px
+            font-weight: 300
+            line-height: 24px
+
+        .addon-install-header
+            margin-top: 30px
+            h4
+                text-transform: uppercase
+                font-weight: bold
+                font-size: 14px
+                color: $text-darkblue
+            border-bottom: 1px solid #d5d5d5
+
+        .addon-instruction-steps
+            padding-top: 15px
+            color: $nice-black
+            h4
+                margin-top: 30px
+                font-size: 16px
+                font-weight: bold
+            p.lead
+                font-size: 14px
+                line-height: 24px
+                margin-bottom: 10px
+
+            .btn
+                margin-top: 0
+
+    #cross
+        float: right
+        margin-right: 10px
+
+button.navbar-toggle
+    color: $nice-black !important
+
+#navbar-mobile .btn
+    text-transform: lowercase
+    font-weight: 400
+    color: $text-darkblue
+
+#navbar-mobile-btn
+    margin-top: 20px
+    margin-bottom: 20px
+    width: 40px
+    height: 40px
+    border-radius: 100%
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1)
+    img
+        max-width: 100%
+        max-height: 100%
+
+.remove-step
+    margin-right: 10px
+
+#guide-creation-2-form
+
+    li.parsley-required
+        padding-bottom: 20px
+
+.preview-box
+    text-align: center
+
+    h4
+        +lato
+        font-size: 24px
+        color: $text-darkblue
+        font-weight: bold
+
+    p
+        color: $text-darkblue
+        +lato
+        font-size: 16px
+        font-weight: 400
+
+    .preview-cta
+        .btn:first-of-type
+            margin-right: 10px
+
+#url-examples
+    z-index: 3
+    opacity: 1
+    position: fixed
+    top: 100px
+    left: 50%
+    margin-left: -250px
+    background-color: white
+    overflow: hidden
+    width: 500px
+    box-shadow: 0 0 62px rgba(0,0,0,.45)
+    text-align: center
+    padding: 20px 0 50px
+    border-radius: 8px
+
+    ul
+        list-style: none
+        padding: 0
+
+    li
+        margin-bottom: 20px
+        p
+            margin: 0
+        small
+            padding: 0 30px
+
+.sign-in-box
+    z-index: 3
+    opacity: 1
+    position: fixed
+    top: 100px
+    left: 50%
+    margin-left: -250px
+    background-color: white
+    overflow: hidden
+    width: 500px
+    box-shadow: 0 0 62px rgba(0,0,0,.45)
+    text-align: center
+    padding: 20px 0 50px
+    border-radius: 8px
+
+    .sign-in-entry
+        padding: 30px 0 0
+        +lato
+        font-size: 13px
+        color: $text-darkblue
+
+        img
+            width: 350px
+
+        p
+            margin-bottom: 5px
+
+        #sign-in-with-google
+            padding: 0
+            cursor: pointer
+
+        .btn
+            margin-top: 0
+
+.pointer
+    cursor: pointer
+
+.link, .linkified
+    color: $green-sea !important
+    border-bottom: 1px dotted $turquoise
+
+#payment-results
+    margin-top: 100px
+    text-align: center
+    color: $text-darkblue
+    img
+        margin: 20px 0
+    p.lead
+        +lato
+        font-weight: 300
+        margin-top: 0
+
+    #fail
+        color: $pomegranate
+
+    #success
+        color: $green-sea
+
+#how-it-works-container
+    padding: 40px 40px 0
+    img
+        max-width: 100%
+        margin-bottom: 20px
+
+    p
+        margin-bottom: 20px
+        color:  $text-darkblue
+        +lato
+        font-size: 16px
+        text-align: center
+
+.how-section
+    margin-bottom: 100px
+    text-align: center
+    h4
+        font-weight: bold
+
+.bold
+    font-weight: bold
+
+.contact
+    .box.btn
+        margin: 20px 0
+        width: 100%
+        padding: 10px
+        background-color: #f9f9f9
+        border-radius: 8px
+        border: 1px solid #d5d5d5
+        img
+            height: 100px
+            margin: 30px 0
+
+    .support-desc
+        +lato
+        font-size: 12px
+        padding: 0 20px
+
+.addon-container
+    .well
+        background-color: white !important
+        font-style: italic
+        color: $text-darkblue !important
+        +lato
+
+.shadow-box
+    box-shadow: 0 0 49px rgba(0,0,0,.25)
+
+
+.box-promo
+    h4
+        +open-sans
+        font-weight: 200
+        font-size: 30px
+        color: #16a085
+
+    p
+        color: #7f8c8d
+
+    .container-fluid
+        padding: 30px 30px
+
+
+#free-tier-application
+    margin-top: 50px
+
+#index-promo
+    margin-top: 50px
+    margin-bottom: 50px
+
+#index-container
+    margin-bottom: 80px
+
+#meter-box
+    +open-sans
+    font-weight: 200
+    #meter
+        margin: 0 auto
+        max-width: 100px
+        height: 480px
+        position: relative
+
+        #meter-filler
+            width: 100%
+            height: 17%
+            position: absolute
+            bottom: 0
+            background-color: $sunflower
+
+        #meter-filler.friends4
+            height: 81%
+
+        #meter-filler.friends3
+            height: 65%
+
+        #meter-filler.friends2
+            height: 49%
+
+        #meter-filler.friends1
+            height: 33%
+
+        #meter-filler.friends5
+            height: 100%
+
+
+    .meter-tier
+        height: 80px
+
+#referral-box
+    margin: 200px 0 200px
+    padding: 30px 30px
+    text-align: center
+    h2
+        color: $text-darkblue
+        font-size: 20px
+
+    #referral-link
+        margin: 30px 0 10px
+        +lato
+        font-size: 28px
+        color: $green-sea
+        font-weight: bold
+
+    p
+        color: #7f8c8d
+
+.body-screenshot-box
+    text-align: center
+
+    img
+        max-width: 100%
+
+.body-descriptor-box
+    position: relative
+
+    h2
+        +lato
+        font-size: 36px
+        font-weight: 300
+        color: $text-darkblue
+
+    p.lead
+        +open-sans
+        color: $text-darkblue
+        font-size: 16px
+
+
+.yellow-underline
+    display: inline-block
+    position: relative
+    white-space: nowrap
+    div
+        position: absolute
+        width: 100%
+        height: 5px
+        background-color: #ffe98f
+        z-index: -1
+        bottom: 3px
+
+div.indicator
+    width: 14px
+    height: 14px
+    border-radius: 7px
+    background-color: $text-darkblue
+    display: inline-block
+    margin: 0 3px
+
+div.indicator.active
+    background-color: white
+    border: 1px solid $text-darkblue
+
+.indicator-box
+    text-align: center
+    height: $indicator-ht
+    padding-top: 15px
+    cursor: pointer
+    position: fixed
+    bottom: 0
+    left: 0
+    background-color: rgba(255,255,255,.6)
+
+    span
+        display: inline-block
+        font-size: 18px
+        color: $text-darkblue
+        +lato
+        font-weight: 300
+        margin: 0 20px
+
+.slide-box
+    position: relative
+
+.vertical-align
+    display: flex
+    align-items: center
+    justify-content: center
+
+.slide
+    min-height: 100vh
+    margin-top: -$header-ht
+    margin-bottom: -$indicator-ht
+    padding-top: $header-ht - 50px
+    padding-bottom: $indicator-ht
+    display: flex
+    align-items: center
+    justify-content: center
+    h2
+        +lato
+        font-size: 30px
+        font-weight: 300
+        color: $text-darkblue
+    p
+        color: $text-darkblue
+        +open-sans
+        font-size: 14px
+        line-height: 20px
+
+    img
+        max-width: 100%
+
+.fixed
+    position: fixed
+
+.cta.container-fluid
+    padding: 0 !important
+    margin: 0 !important
+
+#install-plain
+    border-radius: 8px
+    border: 1px solid $text-darkblue
+    height: 56px
+    line-height: 38px
+
+.contact-box-desc
+    h3
+        +lato
+        font-weight: 300
+        font-size: 36px
+        color: $text-darkblue
+        text-transform: none
+    p
+        +open-sans
+        color: $text-darkblue
+        font-size: 14px
+        text-transform: none
+
+#gen-info
+    margin-top: 150px
+
+.data-privacy-box
+    margin-top: 50px
+    img
+        width: 200px
+        height: 200px
+
+    h3
+        +lato
+        font-size: 24px
+        font-weight: 300
+        color: $text-darkblue
+
+    p
+        +open-sans
+        font-size: 14px
+        color: $text-darkblue
+
+#spdy-slide
+    img
+        max-width: 100%
+
+#dtr-slide
+    .badge
+        position: relative
+        top: -5px
+
+.pricing-box
+    .vpn-title
+        +open-sans
+        color: $text-darkblue
+        font-weight: 200
+        font-size: 22px
+        line-height: 80px
+        text-align: center
+
+    .vpn-title.large
+        font-size: 32px
+
+    .discounts
+        color: $pomegranate
+        font-weight: 400
+        font-size: 18px
+        height: 30px
+        p
+            line-height: 30px
+
+    .price
+        color: $text-darkblue
+        font-weight: 200
+        font-size: 48px
+        .mo, span
+            color: $text-darkblue
+            font-weight: 200
+            font-size: 48px
+            color: $text-darkblue
+            font-size: 16px
+            font-weight: 300
+        .digits
+            color: $text-darkblue
+            font-weight: 200
+            font-size: 48px
+
+    .price.active
+        .digits
+            color: $green-sea
+            font-weight: bold
+
+    .payment-terms
+        margin: 30px 0 20px
+        height: 126px
+        label
+            display: block
+            text-align: center
+            color: #757575
+            +lato
+            font-weight: 200
+
+        select
+            background-color: #f6f6f6
+            border: 0px
+            margin: 0 auto
+            width: 100%
+            text-align: center
+            +open-sans
+            font-size: 16px
+            height: 35px
+            line-height: 35px
+
+    .pricing-comparison
+        padding: 30px 20px 50px
+
+    .features
+        padding: 20px 0
+        +lato
+        font-weight: 200
+        p
+            height: 40px
+            line-height: 40px
+        .black-tick
+            max-width: 50%
+            max-height: 50%
+
+
+#quotation
+    padding-bottom: 100px
+
+    h4
+        strong
+            color: $text-darkblue
+
+    .shadow-box
+        padding: 30px 40px 50px
+
+    .price, .multiple-price
+        +lato
+        font-weight: 300
+        color: $text-darkblue
+        .figure,.sign
+            display: inline-block
+            font-size: 46px
+            span.small
+                display: block
+                font-size: 26px
+            .highlight
+                color: $green-sea
+
+        .sign
+            margin: 0 0px
+            position: relative
+            top: -20px
+
+    .multiple-price
+        padding-top: 20px
+        .figure
+            font-size: 30px
+            small
+                font-size: 16px
+                font-weight: 400
+            span.small
+                display: block
+                font-size: 18px
+
+    #select-payment-method
+        margin-top: 50px
+        margin-bottom: 10px
+
+    #saasy-form
+        display: inline-block
+
+    #pay-now, #saasy-pay-now
+        cursor: pointer
+        img
+            width: 200px
+
+    #saasy-pay-now
+        cursor: pointer
+
+.card
+    box-shadow: 0px 5px 25px -9px rgba(0, 0, 0, 0.8)
+    background-color: #f5f5f5
+    padding: 0
+    display: block
+    margin-bottom: 30px
+
+    .card-title
+        padding: 5px 0
+        h4
+            font-weight: 200
+            padding: 0
+        .lead
+            margin: 0
+
+        .glyphicon
+            color: #999
+            margin-left: 15px
+
+        .dropdown
+            display: inline-block
+
+    .card-contents
+        padding: 15px
+
+        label
+            font-size: 11px
+            +lato
+
+        small
+            color: #999
+
+        .block
+            margin: 15px 0
+
+.card.white
+    background-color: white
+    border: 1px solid #f5f5f5
+
+.jumbotron
+    a
+        color: #337ab7
+
+.modal-content
+    padding: 15px

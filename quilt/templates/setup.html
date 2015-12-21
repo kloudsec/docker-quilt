@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>Quilt</h1>
+        <p class="lead">
+            A fast autobuild service for <code>Dockerfile</code> projects that uses image layer caching
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+        <div class="card">
+            <div class="card-title">
+                <h4>
+                    Make this Quilt your own
+                </h4>
+            </div>
+            <div class="card-contents">
+                <form action="/setup" method="post" data-parsley-validate>
+                    <div class="form-group">
+                        <label>
+                            ADMIN USERNAME *
+                        </label>
+                        <input type="text" name="username" data-parsley-required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            ADMIN PASSWORD *
+                        </label>
+                        <input type="password" name="passwd" data-parsley-required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            GIT SSH KEY
+                        </label>
+                        <p>
+                            <small>
+                                Optional; To clone and pull from private git repos such as Bitbucket repos
+                            </small>
+                        </p>
+                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            DOCKER HUB EMAIL *
+                        </label>
+                        <p>
+                            <small>
+                                To push to Docker hub registry
+                            </small>
+                        </p>
+                        <input type="email" name="docker_hub_email" data-parsley-required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            DOCKER HUB USERNAME *
+                        </label>
+                        <input type="text" name="docker_hub_username" data-parsley-required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            DOCKER HUB PASSWORD *
+                        </label>
+                        <input type="password" name="docker_hub_passwd" data-parsley-required class="form-control" />
+                    </div>
+
+                    <button class="btn btn-primary btn-block">
+                        NEXT
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+.jumbotron
+    .container.text-center
+        h1 | Error
+        p.lead
+            {{error_msg}}
+        a.btn.btn-primary.btn-block href="/"
+            BACK
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="nubela">
+        {% block head %}{% endblock %}
+        <title>{% block title %}Quilt{%endblock%}</title>
+        <link href="/media/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/media/css/main.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Open+Sans:300italic,400italic,600italic,700italic,700,300,600,400&subset=latin,latin-ext,vietnamese' rel='stylesheet' type='text/css' />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/media/js/bootstrap.min.js"></script>
+        <script src="/media/js/parsley.min.js"></script>
+        <script src="/media/js/main.js"></script>
+    </head>
+
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
