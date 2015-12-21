@@ -14,7 +14,7 @@ To install
 
 Run the docker instance in your server
 
-    $ sudo docker run -privileged -p 80:80 -it nubelacorp/docker-quilt
+    $ sudo docker run --privileged -p 80:80 -it nubelacorp/docker-quilt
     
 Configure it for the first time by visiting
 
