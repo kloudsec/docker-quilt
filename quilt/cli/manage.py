@@ -63,7 +63,7 @@ def run():
 @manager.command
 def deploy():
     app.debug = True
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=80, threaded=True)
     # d = wsgiserver.WSGIPathInfoDispatcher({'/': app})
     # host = '0.0.0.0'
     # port = CHERRYPY_PORT
