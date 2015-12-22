@@ -119,23 +119,24 @@ def del_build(id):
 
 
 def webhook(build_flow_id):
-    build_flow = builds.get(build_flow_id)
-    if build_flow is not None:
+    build_flow = builds.get(int(build_flow_id))
+    if build_flow is None:
         return
 
     json_dic = request.get_json()
     branch = None
     commit_msg = None
-    if "bitbucket.org/" in build_flow.uri:
+    if "bitbucket.org" in build_flow.uri:
         if 'push' in json_dic and \
                         'changes' in json_dic['push'] and \
                         'new' in json_dic['push']['changes'] and \
                         'type' in json_dic['push']['changes']['new'] and \
                         json_dic['push']['changes']['new']['type'] == 'branch':
-            branch = json_dic['push']['changes']['new']['name']
-            commit_msg = json_dic['push']['changes']['new']['target']['message']
+            branch = json_dic['push']['changes'][0]['new']['name']
+            commit_msg = json_dic['push']['changes'][0]['new']['target']['message']
+            print branch, commit_msg
 
-    elif "github.com/" in build_flow.uri:
+    elif "github.com" in build_flow.uri:
         if 'ref' in json_dic and \
                         'head_commit' in json_dic:
             branch = json_dic['ref'].split("/")[-1]
@@ -158,7 +159,7 @@ def webhook(build_flow_id):
     util.post_to_slack('Pushing Docker image to %s..' % (build_flow.docker_repo_image))
     for t in all_tags:
         docker.push(build_flow.uri, t)
-    util.post_to_slack('Docker image pushedto %s! All done.' % (build_flow.docker_repo_image))
+    util.post_to_slack('Docker image pushed to %s! All done.' % (build_flow.docker_repo_image))
 
 
 @_requires_auth
@@ -175,7 +176,7 @@ def update_ssh_key():
 
 
 app.add_url_rule('/hook/<build_flow_id>',
-                 "webhook", webhook, methods=['GET'])
+                 "webhook", webhook, methods=['GET', 'POST'])
 
 app.add_url_rule('/manage',
                  "manage", manage, methods=['GET'])

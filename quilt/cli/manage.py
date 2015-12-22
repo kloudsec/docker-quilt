@@ -1,12 +1,11 @@
 import shutil
 
-from cfg import CWD, RESOURCES_PATH, WORKSPACE_PATH, CHERRYPY_PORT
-from cherrypy import wsgiserver
+from cfg import CWD, RESOURCES_PATH, WORKSPACE_PATH
 import os
 from manager import Manager
 from quilt.app import Base, db
 from quilt.action import util
-from quilt.web import app
+from quilt.web import app, webhook
 
 
 manager = Manager()
@@ -46,53 +45,8 @@ def init():
 
 
 @manager.command
-def is_repo_cloned(uri):
-    """
-    Checks if a repo is already cloned in the workspace
-
-    Some examples of URI:
-    * git@bitbucket.org:gom-vpn/gom-provider-dockerfile.git
-    * https://github.com/fgrehm/vagrant-lxc.git
-    * git@github.com:fgrehm/vagrant-lxc.git
-    """
-    return os.path.exists(os.path.join(WORKSPACE_PATH, util.project_name_from_git_uri(uri)))
-
-
-@manager.command
-def clone_from_repo(uri):
-    if is_repo_cloned(uri):
-        return pull_from_repo(uri)
-
-    util.run_cmd_lis(["cd %s" % (WORKSPACE_PATH),
-                      "git clone %s" % (uri)])
-    return True
-
-
-@manager.command
-def pull_from_repo(uri, branch):
-    if not is_repo_cloned(uri):
-        return clone_from_repo(uri)
-
-    util.run_cmd_lis(["cd %s" % (os.path.join(WORKSPACE_PATH, util.project_name_from_git_uri(uri))),
-                      "git checkout %s" % (branch),
-                      "git pull"])
-    return True
-
-
-@manager.command
-def build_image(uri, repo_image, tag):
-    util.run_cmd_lis(["cd %s" % (os.path.join(WORKSPACE_PATH, util.project_name_from_git_uri(uri)))])
-    return os.system('docker pull %s:%s' % (repo_image, tag)) == 0
-
-
-@manager.command
-def login_to_docker(username, email, passwd):
-    return os.system('docker login -e %s -p %s -u %s' % (email, passwd, username)) == 0
-
-
-@manager.command
-def push_docker_image(repo_image, tag):
-    return os.system('docker pull %s:%s' % (repo_image, tag)) == 0
+def build(build_flow_id):
+    webhook(build_flow_id)
 
 
 @manager.command
