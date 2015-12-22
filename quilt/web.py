@@ -127,11 +127,7 @@ def webhook(build_flow_id):
     branch = None
     commit_msg = None
     if "bitbucket.org" in build_flow.uri:
-        if 'push' in json_dic and \
-                        'changes' in json_dic['push'] and \
-                        'new' in json_dic['push']['changes'] and \
-                        'type' in json_dic['push']['changes']['new'] and \
-                        json_dic['push']['changes']['new']['type'] == 'branch':
+        if 'push' in json_dic:
             branch = json_dic['push']['changes'][0]['new']['name']
             commit_msg = json_dic['push']['changes'][0]['new']['target']['message']
             print branch, commit_msg
