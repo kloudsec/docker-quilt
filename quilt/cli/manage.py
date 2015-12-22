@@ -103,16 +103,18 @@ def run():
 
 @manager.command
 def deploy():
-    d = wsgiserver.WSGIPathInfoDispatcher({'/': app})
-    host = '0.0.0.0'
-    port = CHERRYPY_PORT
-    server = wsgiserver.CherryPyWSGIServer((host, port), d, numthreads=30, timeout=21600, request_queue_size=200)
-
-    try:
-        print "Server started on http://%s:%d" % (host, port)
-        server.start()
-    except KeyboardInterrupt:
-        server.stop()
+    app.debug = True
+    app.run(host='0.0.0.0', port=80)
+    # d = wsgiserver.WSGIPathInfoDispatcher({'/': app})
+    # host = '0.0.0.0'
+    # port = CHERRYPY_PORT
+    # server = wsgiserver.CherryPyWSGIServer((host, port), d, numthreads=30, timeout=21600, request_queue_size=200)
+    #
+    # try:
+    #     print "Server started on http://%s:%d" % (host, port)
+    #     server.start()
+    # except KeyboardInterrupt:
+    #     server.stop()
 
 
 if __name__ == '__main__':
