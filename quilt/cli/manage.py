@@ -4,7 +4,7 @@ from cfg import CWD, RESOURCES_PATH, WORKSPACE_PATH
 import os
 from manager import Manager
 from quilt.app import Base, db
-from quilt.action import util
+from quilt.action import util, git
 from quilt.web import app, webhook
 
 
@@ -42,6 +42,11 @@ def init():
     print "Created ./resources/*"
 
     return True
+
+
+@manager.command
+def clone(uri):
+    return git.clone(uri)
 
 
 @manager.command

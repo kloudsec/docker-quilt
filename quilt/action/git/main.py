@@ -11,8 +11,7 @@ def clone(uri):
     if is_cloned(uri):
         return pull(uri, 'master')
 
-    util.run_cmd_lis(["cd %s" % (WORKSPACE_PATH)])
-    return os.system("git clone %s" % (uri)) == 0
+    return os.system("cd %s && git clone %s" % (WORKSPACE_PATH, uri)) == 0
 
 
 def pull(uri, branch):
