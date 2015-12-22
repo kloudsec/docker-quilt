@@ -3,6 +3,13 @@ Quilt
 
 Quilt for docker is a fast autobuild service for `Dockerfile` projects that uses image layer caching.
 
+Screenshots
+-----------
+
+![Login](http://i.imgur.com/IQY4vs5.png)
+
+![Manage builds](http://i.imgur.com/nmbbdPt.png)
+
 Features
 --------
 
@@ -19,3 +26,9 @@ Run the docker instance in your server
 Configure it for the first time by visiting
 
      http://<host>/
+     
+To use
+------
+
+* Just add webhook (specified in the build card) to your Git repository push events
+* To build without caching, simply include `<no-caching>` in your commit message.
