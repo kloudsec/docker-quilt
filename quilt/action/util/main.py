@@ -21,7 +21,10 @@ def project_name_from_git_uri(uri):
 
 def save_bitbucket_ssh_key(ssh_key):
     home = os.path.expanduser('~')
-    with open(os.path.join(home, '.ssh/id_rsa', 'w')) as f:
+    ssh_path = os.path.join(home, '.ssh')
+    if not os.path.exists(ssh_path):
+        os.mkdir(ssh_path)
+    with open(os.path.join(home, '.ssh/id_rsa'), 'w') as f:
         f.write(ssh_key)
         f.close()
 
