@@ -118,7 +118,7 @@ def del_build(id):
     return redirect('/manage')
 
 
-def webhook(build_flow_id):
+def webhook(build_flow_id, caching=True):
     build_flow = builds.get(int(build_flow_id))
     if build_flow is None:
         return
@@ -130,7 +130,6 @@ def webhook(build_flow_id):
         if 'push' in json_dic:
             branch = json_dic['push']['changes'][0]['new']['name']
             commit_msg = json_dic['push']['changes'][0]['new']['target']['message']
-            print branch, commit_msg
 
     elif "github.com" in build_flow.uri:
         if 'ref' in json_dic and \
@@ -149,13 +148,18 @@ def webhook(build_flow_id):
         misc_tags += ['staging']
     git.pull(build_flow.uri, branch)
     util.post_to_slack('Building Dockerfile of %s..' % (util.project_name_from_git_uri(build_flow.uri)))
-    docker.build(build_flow.uri, build_flow.docker_repo_image, branch, misc_tags)
-    util.post_to_slack('Finished Dockerfile of %s!' % (util.project_name_from_git_uri(build_flow.uri)))
-    all_tags = misc_tags + [branch]
-    util.post_to_slack('Pushing Docker image to %s..' % (build_flow.docker_repo_image))
-    for t in all_tags:
-        docker.push(build_flow.uri, t)
-    util.post_to_slack('Docker image pushed to %s! All done.' % (build_flow.docker_repo_image))
+    success = docker.build(build_flow.uri, build_flow.docker_repo_image, branch, misc_tags, use_cache=("<no-caching>" not in commit_msg))
+    if success:
+        util.post_to_slack('Finished building Dockerfile of %s!' % (util.project_name_from_git_uri(build_flow.uri)))
+        all_tags = misc_tags + [branch]
+        util.post_to_slack('Pushing Docker image to %s..' % (build_flow.docker_repo_image))
+        for t in all_tags:
+            docker.push(build_flow.docker_repo_image, t)
+        util.post_to_slack('Docker image pushed to %s! All done.' % (build_flow.docker_repo_image))
+    else:
+        util.post_to_slack('Failed to build %s' % (util.project_name_from_git_uri(build_flow.uri)))
+
+    return ('', 204)
 
 
 @_requires_auth

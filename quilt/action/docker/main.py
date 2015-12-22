@@ -16,15 +16,14 @@ def build(uri, repo_image, main_tag, other_tags=None, use_cache=True):
         other_tags = []
 
     cd_cmd = "cd %s" % (os.path.join(WORKSPACE_PATH, util.project_name_from_git_uri(uri)))
-    util.run_cmd_lis([cd_cmd])
     repo_image_tag = '%s:%s' % (repo_image, main_tag)
     if use_cache:
-        build_success = os.system("docker build -t %s ." % (repo_image_tag)) == 0
+        build_success = os.system("%s && docker build -t %s ." % (cd_cmd, repo_image_tag)) == 0
     else:
-        build_success = os.system("docker build --no-cache -t %s ." % (repo_image_tag)) == 0
+        build_success = os.system("%s && docker build --no-cache -t %s ." % (cd_cmd, repo_image_tag)) == 0
     if build_success:
         image_id = subprocess.check_output("docker images -q %s" % (repo_image_tag), shell=True)
-        util.run_cmd_lis(["docker tag %s %s:%s" % (image_id, repo_image, t) for t in other_tags])
+        util.run_cmd_lis(["docker tag %s %s:%s" % (image_id.replace("\n",""), repo_image, t) for t in other_tags])
     return build_success
 
 
