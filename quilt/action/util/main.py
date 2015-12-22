@@ -1,7 +1,6 @@
 import uuid
 
 from cfg import SLACK_MSG_PREFIX
-
 import os
 import requests
 
@@ -24,9 +23,11 @@ def save_bitbucket_ssh_key(ssh_key):
     ssh_path = os.path.join(home, '.ssh')
     if not os.path.exists(ssh_path):
         os.mkdir(ssh_path)
-    with open(os.path.join(home, '.ssh/id_rsa'), 'w') as f:
+    id_rsa_path = os.path.join(home, '.ssh/id_rsa')
+    with open(id_rsa_path, 'w') as f:
         f.write(ssh_key)
         f.close()
+    run_cmd_lis(["chmod 600 %s" % (id_rsa_path)])
 
 
 def post_to_slack(msg):

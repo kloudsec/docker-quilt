@@ -14,15 +14,8 @@ To install
 
 Run the docker instance in your server
 
-    $ sudo docker run --privileged -p 80:80 -it nubelacorp/docker-quilt
+    $ sudo docker run -v /var/run/docker.sock:/run/docker.sock -v $(which docker):/bin/docker -v /usr/lib/x86_64-linux-gnu/libapparmor.so.1.1.0:/lib/x86_64-linux-gnu/libapparmor.so.1 -p 80:80 -it nubelacorp/docker-quilt
     
 Configure it for the first time by visiting
 
      http://<host>/
-     
-FAQ
----
-
-* Why use privileged mode?
-
-Because we have to run *docker in docker*.

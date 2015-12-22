@@ -63,7 +63,7 @@ def init():
     username = request.form.get('username')
     passwd = request.form.get('passwd')
     bitbucket_ssh_key = request.form.get('bitbucket_ssh_key')
-    slack_incoming_webhook = request.form.get('slack_incoming_webhook')
+    slack_incoming_webhook = request.form.get('slack_incoming_webbook')
 
     docker_hub_email = request.form.get('docker_hub_email')
     docker_hub_username = request.form.get('docker_hub_username')
