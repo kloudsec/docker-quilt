@@ -1,6 +1,9 @@
 import uuid
 
+from cfg import SLACK_MSG_PREFIX
+
 import os
+import requests
 
 
 def generate_uuid():
@@ -21,3 +24,16 @@ def save_bitbucket_ssh_key(ssh_key):
     with open(os.path.join(home, '.ssh/id_rsa', 'w')) as f:
         f.write(ssh_key)
         f.close()
+
+
+def post_to_slack(msg):
+    from quilt.action import kv
+
+
+    slack_webhook = kv.get(kv.Keys.SLACK_INCOMING_WEBHOOK, None)
+    if slack_webhook is None:
+        return
+
+    requests.post(slack_webhook, json={
+        'text': "%s%s" % (SLACK_MSG_PREFIX, msg),
+    })

@@ -7,3 +7,4 @@ WORKSPACE_PATH = os.path.join(RESOURCES_PATH, 'workspace')
 SQL_URI = 'sqlite:///state.db'
 CHERRYPY_PORT = 80
 DEBUG = False
+SLACK_MSG_PREFIX = "[QUILT] "

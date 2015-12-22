@@ -27,14 +27,6 @@
 
                     .form-group
                         label
-                            GIT SSH KEY
-                        p
-                            small
-                                Optional; To clone and pull from private git repos such as Bitbucket repos
-                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
-
-                    .form-group
-                        label
                             DOCKER HUB EMAIL *
                         p
                             small
@@ -50,6 +42,22 @@
                         label
                             DOCKER HUB PASSWORD *
                         > input.form-control type="password" name="docker_hub_passwd" data-parsley-required
+
+                    .form-group
+                        label
+                            GIT SSH KEY
+                        p
+                            small
+                                Optional; To clone and pull from private git repos such as Bitbucket repos
+                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
+
+                    .form-group
+                        label
+                            Slack incoming Webhook
+                        p
+                            small
+                                Optional; For Quilt to post events on Slack
+                        > input.form-control type="text" name="slack_incoming_webbook" data-parsley-type="url"
 
                     button.btn.btn-primary.btn-block
                         NEXT

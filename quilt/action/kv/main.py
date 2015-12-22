@@ -9,6 +9,7 @@ class Keys:
     DOCKER_USERNAME = "docker_username"
     DOCKER_PASSWD = "docker_passwd"
     DOCKER_EMAIL = "docker_email"
+    SLACK_INCOMING_WEBHOOK = "slack_incoming_webhook"
 
 
 def get(key, default_value):

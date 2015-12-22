@@ -63,6 +63,7 @@ def init():
     username = request.form.get('username')
     passwd = request.form.get('passwd')
     bitbucket_ssh_key = request.form.get('bitbucket_ssh_key')
+    slack_incoming_webhook = request.form.get('slack_incoming_webhook')
 
     docker_hub_email = request.form.get('docker_hub_email')
     docker_hub_username = request.form.get('docker_hub_username')
@@ -75,6 +76,9 @@ def init():
 
     kv.set(kv.Keys.ADMIN_USERNAME, username)
     kv.set(kv.Keys.ADMIN_PASSWD, passwd)
+    if slack_incoming_webhook is not None:
+        kv.set(kv.Keys.SLACK_INCOMING_WEBHOOK, slack_incoming_webhook)
+        util.post_to_slack("Welcome to Quilt")
     if not DEBUG and bitbucket_ssh_key is not None: util.save_bitbucket_ssh_key(bitbucket_ssh_key)
     return redirect("/manage")
 
@@ -140,23 +144,34 @@ def webhook(build_flow_id):
     if None in [branch, commit_msg]:
         return
 
+    util.post_to_slack('New push from %s/%s (%s)' % (util.project_name_from_git_uri(build_flow.uri), branch, commit_msg))
     misc_tags = []
     if branch == 'master':
         misc_tags += ['latest']
     if branch == 'develop':
         misc_tags += ['staging']
     git.pull(build_flow.uri, branch)
+    util.post_to_slack('Building Dockerfile of %s..' % (util.project_name_from_git_uri(build_flow.uri)))
     docker.build(build_flow.uri, build_flow.docker_repo_image, branch, misc_tags)
+    util.post_to_slack('Finished Dockerfile of %s!' % (util.project_name_from_git_uri(build_flow.uri)))
     all_tags = misc_tags + [branch]
+    util.post_to_slack('Pushing Docker image to %s..' % (build_flow.docker_repo_image))
     for t in all_tags:
         docker.push(build_flow.uri, t)
+    util.post_to_slack('Docker image pushedto %s! All done.' % (build_flow.docker_repo_image))
 
 
 @_requires_auth
 def update_ssh_key():
     ssh_key = request.form.get('ssh_key')
+    slack_incoming_webhook = request.form.get('slack_incoming_webbook')
     if ssh_key is not None and not DEBUG:
         util.save_bitbucket_ssh_key(ssh_key)
+
+    if slack_incoming_webhook is not None:
+        kv.set(kv.Keys.SLACK_INCOMING_WEBHOOK, slack_incoming_webhook)
+        util.post_to_slack("Successfully setuped Slack notifications!")
+    return redirect("/manage")
 
 
 app.add_url_rule('/hook/<build_flow_id>',

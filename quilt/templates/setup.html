@@ -36,18 +36,6 @@
 
                     <div class="form-group">
                         <label>
-                            GIT SSH KEY
-                        </label>
-                        <p>
-                            <small>
-                                Optional; To clone and pull from private git repos such as Bitbucket repos
-                            </small>
-                        </p>
-                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
                             DOCKER HUB EMAIL *
                         </label>
                         <p>
@@ -70,6 +58,30 @@
                             DOCKER HUB PASSWORD *
                         </label>
                         <input type="password" name="docker_hub_passwd" data-parsley-required class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            GIT SSH KEY
+                        </label>
+                        <p>
+                            <small>
+                                Optional; To clone and pull from private git repos such as Bitbucket repos
+                            </small>
+                        </p>
+                        <textarea name="bitbucket_ssh_key" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Slack incoming Webhook
+                        </label>
+                        <p>
+                            <small>
+                                Optional; For Quilt to post events on Slack
+                            </small>
+                        </p>
+                        <input type="text" name="slack_incoming_webbook" data-parsley-type="url" class="form-control" />
                     </div>
 
                     <button class="btn btn-primary btn-block">
